@@ -1,5 +1,5 @@
 #include "Coregistration.h"
-
+#include <omp.h>
 /*
 //**********************************************************************
 This program is developed by Mozhdeh Shahbazi
@@ -14,6 +14,20 @@ for any purpose, even commercially.
 */
 
 int main(int argc, char** argv) {
+	int num_threads = omp_get_num_threads();
+	int max_threads = omp_get_max_threads();
+	std::cout << "Number of threads: " << num_threads << std::endl;
+	std::cout << "Max threads: " << max_threads << std::endl;
+
+	#pragma omp parallel
+	{
+		#pragma omp critical
+		{
+			std::cout << "Thread " << omp_get_thread_num() << " is running" << std::endl;
+		}
+	}
+	
+	
 	// Note: The program's current version has no specifi safe gaurds about bad input arguments including bad files/directories!!!
 	int sens_model0, sens_model1, sens_model2, sens_model3, sens_model4, sens_model6;
 	string imformat = ".tiff";
