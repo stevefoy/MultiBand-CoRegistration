@@ -87,6 +87,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.result
 
 # Chutzpah Test files
 _Chutzpah*
@@ -337,4 +338,5 @@ ASALocalRun/
 .localhistory/
 
 # BeatPulse healthcheck temp database
-healthchecksdb
+healthchecksdbtest_images/UndistortionX_M0_0.result
+test_images/UndistortionY_M0_0.result
